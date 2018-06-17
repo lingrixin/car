@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前配置"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/tv_socket_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Socket地址："
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/tv_socket_port"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Socket端口号："
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/tv_turn_angle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="转向角度："
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="单位速度："
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/tv_sampling_interval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="采样间隔："
+        android:textSize="16dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_socket_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_socket_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:imeOptions="actionNext"
+            android:hint="Socket地址" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_socket_port"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_socket_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:imeOptions="actionNext"
+            android:hint="Socket端口号" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_turn_angle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_turn_angle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:imeOptions="actionNext"
+            android:hint="转向角度" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_speed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:imeOptions="actionNext"
+            android:hint="单位速度" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_sampling_interval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_sampling_interval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:imeOptions="actionDone"
+            android:hint="采样间隔（ms）" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/bt_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="保存配置" />
+
+
+
+</LinearLayout>
