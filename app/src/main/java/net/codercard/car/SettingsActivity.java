@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import net.codercard.car.utils.Constant;
-import net.codercard.car.utils.HideIMEUtil;
 import net.codercard.car.utils.SPUtils;
 
 /**
@@ -52,7 +51,6 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        HideIMEUtil.wrap(this);
         findView();
         doBusiness();
     }
@@ -147,7 +145,7 @@ public class SettingsActivity extends AppCompatActivity {
         tv.setText(sstr + (String) SPUtils.get(this, key, ""));
     }
 
-    private void initTxt(){
+    private void initTxt() {
         str_socket_address = tv_socket_address.getText().toString();
         str_socket_port = tv_socket_port.getText().toString();
         str_turn_angle = tv_turn_angle.getText().toString();
