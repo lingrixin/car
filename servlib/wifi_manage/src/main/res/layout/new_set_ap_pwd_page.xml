@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="560px"
+        android:layout_height="300px"
+        android:layout_centerInParent="true"
+        android:background="@drawable/shape_connected_bg">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20px">
+
+            <TextView
+                android:id="@+id/textView60"
+                style="@style/wifi_connected_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:gravity="left|center"
+                android:text="wifi_name" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/pass_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58px"
+            android:paddingStart="50px"
+            android:paddingEnd="50px"
+            android:layout_marginTop="35px"
+            android:layout_below="@+id/relativeLayout20"
+            android:layout_centerHorizontal="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/wifi_pass_background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView47"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="密码"
+                    android:textSize="24sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editText1"
+                        android:layout_width="0dp"
+                        android:layout_height="33px"
+                        android:layout_marginLeft="80px"
+                        android:layout_weight="5"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="输入密码"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword"
+                        android:textSize="24sp">
+
+                        <requestFocus />
+                    </EditText>
+
+                    <ImageView
+                        android:id="@+id/iv_eyes"
+                        android:layout_width="50px"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="18px"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/selector_activation_password_eye_wifi" />
+                </LinearLayout>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="60px"
+                android:layout_height="match_parent"
+                android:background="@drawable/wifi_pass_lock_background">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:src="@drawable/wifi_lock"
+                />
+            </FrameLayout>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="53px"
+            android:layout_below="@+id/pass_layout"
+            android:layout_marginLeft="53px"
+            android:layout_marginRight="53px"
+            android:layout_marginTop="59px">
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="200px"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="53px"
+                android:background="@drawable/btn_common_blacken_new"
+                android:text="取消"
+                android:textColor="@drawable/btn_myfamily_font_pop_qx_new"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="200px"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/btn_common_disenable"
+                android:enabled="false"
+                android:text="确认"
+                android:textColor="@drawable/btn_myfamily_font_pop_sure_new"
+                android:textSize="24sp" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

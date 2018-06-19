@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.haier.controler" >
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application>
+        <activity android:name=".activity.ControlerHiddlerTestActivity"/>
+        <service android:name=".serive.ControlerService"/>
+    </application>
+</manifest>

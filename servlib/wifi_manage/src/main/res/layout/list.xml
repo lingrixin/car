@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/goto_launcher_view"
+        android:layout_width="100px"
+        android:layout_height="100px" />
+
+    <View
+        android:id="@+id/goto_factory_test"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_alignParentRight="true"/>
+    <View
+        android:id="@+id/goto_serial_factory_test"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/btn_lock_open"
+        android:layout_width="60px"
+        android:layout_height="60px"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="20px"
+        android:layout_marginLeft="1679px"
+        android:layout_marginRight="180px"
+        android:layout_marginTop="1000px"
+        android:background="@drawable/selector_lock_open"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/btn_lock_close"
+        android:layout_width="60px"
+        android:layout_height="60px"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="20px"
+        android:layout_marginLeft="1779px"
+        android:layout_marginRight="80px"
+        android:layout_marginTop="1000px"
+        android:background="@drawable/selector_lock_close"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="100dp"
+        android:paddingLeft="300dp"
+        android:paddingRight="300dp"
+        android:paddingTop="100dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/wif_bg"
+            android:paddingBottom="20dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:id="@+id/near"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="附近WIFI"
+                android:textColor="@color/gold_new"
+                android:textSize="28px" />
+
+            <ProgressBar
+                android:id="@+id/wifi_load"
+                style="@style/wifi_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/near"
+                android:layout_alignParentRight="true"
+                android:indeterminate="false"
+                android:indeterminateDuration="500"
+                android:visibility="invisible" />
+
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="240px"
+                android:layout_height="50px"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50px"
+                android:background="@drawable/gray_shape"
+                android:text="下一步"
+                android:textColor="#c3c3c3"
+                android:textSize="24px" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/next_btn"
+                android:layout_below="@+id/near"/>
+            <TextView
+                android:id="@+id/tv_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_above="@+id/next_btn"
+                android:layout_below="@+id/near"
+                android:text="加载中..."
+                android:textSize="24px"
+                android:textColor="@color/gold_new"
+                android:visibility="invisible"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

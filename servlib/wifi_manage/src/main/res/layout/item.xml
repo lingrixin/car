@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/wifi_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textColor="@color/main_color"
+        android:textSize="24px"/>
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_save"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toLeftOf="@+id/secret_key"-->
+        <!--android:visibility="invisible"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:textColor="@color/gold_new"-->
+        <!--android:textSize="24px"-->
+        <!--android:text="已保存"-->
+        <!--/>-->
+
+    <ImageView
+        android:id="@+id/iv_save"
+        android:layout_width="15px"
+        android:layout_height="15px"
+        android:layout_toLeftOf="@+id/secret_key"
+        android:visibility="invisible"
+        android:layout_marginRight="20dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/save"/>
+    <!--加锁-->
+    <ImageView
+        android:id="@+id/secret_key"
+        android:layout_width="13px"
+        android:layout_height="17px"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/signal"
+        android:visibility="invisible"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/wifi_lock_back"/>
+
+    <ImageView
+        android:id="@+id/signal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/load"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/wifi1"/>
+
+    <ImageView
+        android:id="@+id/conected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        android:background="@drawable/wifi_conected"/>
+
+    <ProgressBar
+        android:id="@+id/load"
+        style="@style/wifi_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateDuration="1200"
+        android:visibility="invisible"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
+
