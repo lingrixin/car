@@ -32,19 +32,18 @@ public class ControlerService extends Service {
         super.onCreate();
         keepCPURunning();
         beatsHandler = new BeatsHandler(this);
-        proxyObject = new ProxyHandler(beatsHandler, getBaseContext());
+        proxyObject = new ProxyHandler(beatsHandler);
         myBind = new MyBind();
     }
-
 
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return myBind;
     }
 
-    public class MyBind extends Binder{
+    public class MyBind extends Binder {
         public ProxyObject getProxy() {
             return proxyObject;
         }

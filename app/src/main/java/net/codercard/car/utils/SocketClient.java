@@ -13,7 +13,7 @@ public class SocketClient {
 
     public static SocketClient get() {
         if (instance == null) {
-            synchronized(SocketClient.class) {
+            synchronized (SocketClient.class) {
                 if (instance == null) {
                     instance = new SocketClient();
                 }
@@ -40,7 +40,7 @@ public class SocketClient {
             mSocket.close();
             mPrintStream = null;
             mSocket = null;
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -49,7 +49,10 @@ public class SocketClient {
         if (mSocket != null && mPrintStream != null && mSocket.isConnected()) {
             mPrintStream.println(msg);
         }
-
         return false;
+    }
+
+    public boolean isConnected() {
+        return mSocket != null && mPrintStream != null && mSocket.isConnected();
     }
 }
