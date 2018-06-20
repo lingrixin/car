@@ -46,10 +46,14 @@ public class SocketClient {
     }
 
     public boolean send(String msg) {
-        if (mSocket != null && mPrintStream != null && mSocket.isConnected()) {
+        if (isConnected() && mPrintStream != null) {
             mPrintStream.println(msg);
         }
 
         return false;
+    }
+
+    public boolean isConnected() {
+        return mSocket != null && mSocket.isConnected();
     }
 }
