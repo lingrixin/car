@@ -1,15 +1,9 @@
-/*
- * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
- */
 package net.codercard.car.utils;
 
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 
-/**
- * Created by qibin01 on 2018/6/20.
- */
 public class SocketClient {
 
     private static SocketClient instance;
