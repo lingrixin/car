@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 
 import net.codercard.car.controler.api.IConnectStateChange;
@@ -62,16 +63,19 @@ public class BeatsHandler {
                     case CommandIndex.CONNECT:
                         removeMessages(CommandIndex.CONNECT);
                         //解析最新的配置信息
-                        processSp();
-                        Log.i("phan", "尝试连接");
-                        if (socketClient.connect(socketsConfigInfo.getSocketIp(), Integer.valueOf(socketsConfigInfo.getSocketPort()))) {
-                            //连接成功
-                            connectStateChange.connectOk();
-                            Log.i("phan", "连接成功");
-                            startRequest();
-                        } else {
-                            connectStateChange.connectFailure();
-                            Log.i("phan", "连接失败");
+                        if(processSp()){
+                            Log.i("phan", "尝试连接");
+                            if (socketClient.connect(socketsConfigInfo.getSocketIp(), Integer.valueOf(socketsConfigInfo.getSocketPort()))) {
+                                //连接成功
+                                connectStateChange.connectOk();
+                                Log.i("phan", "连接成功");
+                                startRequest();
+                            } else {
+                                connectStateChange.connectFailure();
+                                Log.i("phan", "连接失败");
+                            }
+                        }else {
+                            Log.i("phan", "配置信息读取失败");
                         }
                         break;
                     case CommandIndex.DISCONNECT:
@@ -116,12 +120,21 @@ public class BeatsHandler {
         this.realListener = realListener;
     }
 
-    private void processSp() {
+    private boolean processSp() {
         Log.i("phan", "读取配置信息");
         socketsConfigInfo.setSocketIp((String) SPUtils.get(context, Constant.SOCKET_ADDRESS, ""));
         socketsConfigInfo.setSocketPort((String) SPUtils.get(context, Constant.SOCKET_PORT, ""));
         socketsConfigInfo.setTurnAngle((String) SPUtils.get(context, Constant.TURN_ANGLE, ""));
         socketsConfigInfo.setSpeed((String) SPUtils.get(context, Constant.SPEED, ""));
         socketsConfigInfo.setSamplingInterval((String) SPUtils.get(context, Constant.SAMPLING_INTERVAL, ""));
+        return checkoutConfig();
+    }
+
+    private boolean checkoutConfig() {
+        return !(TextUtils.isEmpty(socketsConfigInfo.getSocketIp())
+                || TextUtils.isEmpty(socketsConfigInfo.getSocketPort())
+                || TextUtils.isEmpty(socketsConfigInfo.getTurnAngle())
+                || TextUtils.isEmpty(socketsConfigInfo.getSpeed())
+                || TextUtils.isEmpty(socketsConfigInfo.getSamplingInterval()));
     }
 }
