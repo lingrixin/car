@@ -47,7 +47,7 @@ public class ControllerManager<T extends BaseActivity> implements IConnectStateC
     }
 
     public void onDestory() {
-        proxyObject.onDestroy();
+//        proxyObject.onDestroy();
     }
 
     ServiceConnection connection = new ServiceConnection() {
