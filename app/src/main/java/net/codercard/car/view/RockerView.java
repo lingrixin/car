@@ -19,6 +19,9 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import net.codercard.car.R;
+import net.codercard.car.utils.Constant;
+import net.codercard.car.utils.SPUtils;
+import net.codercard.car.utils.SocketClient;
 
 /**
  * <pre>
@@ -28,8 +31,8 @@ import net.codercard.car.R;
  *     desc  : RockerView 摇杆控件
  * </pre>
  */
-public class RockerView extends View {
-    private static final String TAG = "RockerView";
+    public class RockerView extends View {
+        private static final String TAG = "RockerView";
 
     private static final int DEFAULT_SIZE = 400;
     private static final int DEFAULT_ROCKER_RADIUS = DEFAULT_SIZE / 8;
@@ -313,10 +316,26 @@ public class RockerView extends View {
         // 计算角度
         double angle = radian2Angle(radian);
 
+        float maxSpeed = Integer.parseInt((String)SPUtils.get(getContext(), Constant.SPEED, ""));
+        float maxSize = getMeasuredWidth();
+        float speed = lenXY / maxSize * maxSpeed;
+
+        float sendAngle = (float) Math.abs(180.0 - angle);
+
+        if (angle < 180) {
+            speed = -speed;
+        }
+
+        // TODO: 2018/6/25 send data
+        SocketClient.get().send(speed  + "," + sendAngle);
+
+        Log.i(TAG, "getRockerPositionPoint: 角度 :" + sendAngle + "，speed=" + speed);
+        Log.i(TAG, "RASPI:" + speed  + "," + sendAngle);
+
         // 回调 返回参数
         callBack(angle);
 
-        Log.i(TAG, "getRockerPositionPoint: 角度 :" + angle);
+
         if (lenXY + rockerRadius <= regionRadius) { // 触摸位置在可活动范围内
             return touchPoint;
         } else { // 触摸位置在可活动范围以外
