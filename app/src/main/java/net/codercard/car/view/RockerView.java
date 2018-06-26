@@ -22,6 +22,7 @@ import net.codercard.car.R;
 import net.codercard.car.utils.Constant;
 import net.codercard.car.utils.SPUtils;
 import net.codercard.car.utils.SocketClient;
+import net.codercard.car.utils.SocketThread;
 
 /**
  * <pre>
@@ -98,6 +99,9 @@ import net.codercard.car.utils.SocketClient;
     private int mRockerBackgroundMode = ROCKER_BACKGROUND_MODE_DEFAULT;
     private Bitmap mRockerBitmap;
     private int mRockerColor;
+
+
+    private SocketThread mSocketThread;
 
 
     public RockerView(Context context, AttributeSet attrs) {
@@ -187,6 +191,24 @@ import net.codercard.car.utils.SocketClient;
 
         Log.i(TAG, "initAttribute: mAreaBackground = " + areaBackground + "   mRockerBackground = " + rockerBackground + "  mRockerRadius = " + mRockerRadius);
         typedArray.recycle();
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (mSocketThread != null) {
+            mSocketThread.quit();
+        }
+
+        int time = Integer.parseInt((String) SPUtils.get(getContext(), Constant.SAMPLING_INTERVAL, ""));
+        mSocketThread = new SocketThread(time);
+        mSocketThread.start();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mSocketThread.quit();
     }
 
     @Override
@@ -327,8 +349,7 @@ import net.codercard.car.utils.SocketClient;
         }
 
         // TODO: 2018/6/25 send data
-        SocketClient.get().send(speed  + "," + sendAngle);
-
+        mSocketThread.newValue(sendAngle, speed);
         Log.i(TAG, "getRockerPositionPoint: 角度 :" + sendAngle + "，speed=" + speed);
         Log.i(TAG, "RASPI:" + speed  + "," + sendAngle);
 
