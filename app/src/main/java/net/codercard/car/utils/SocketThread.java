@@ -10,10 +10,12 @@ import android.util.Log;
  */
 public class SocketThread extends Thread {
 
+    public static final float STOP_SPEED = -10000.f;
+
     public volatile boolean flag;
 
     public volatile float angle;
-    public volatile float speed;
+    public volatile float speed = STOP_SPEED;
 
     private int sleepTime;
 

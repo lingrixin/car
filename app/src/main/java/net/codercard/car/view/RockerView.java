@@ -305,6 +305,7 @@ import net.codercard.car.utils.SocketThread;
                 moveRocker(mRockerPosition.x, mRockerPosition.y);
                 break;
             case MotionEvent.ACTION_UP:// 抬起
+                mSocketThread.newValue(0.0f, SocketThread.STOP_SPEED);
             case MotionEvent.ACTION_CANCEL:// 移出区域
                 // 回调 结束
                 callBackFinish();
